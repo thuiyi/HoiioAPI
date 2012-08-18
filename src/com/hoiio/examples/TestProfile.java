@@ -25,18 +25,11 @@ OTHER DEALINGS IN THE SOFTWARE.
 package com.hoiio.examples;
 
 
-import com.hoiio.api.NumberAPI;
 import com.hoiio.api.ProfileAPI;
-import com.hoiio.dto.ActiveNumbers;
 import com.hoiio.dto.HoiioAuth;
 import com.hoiio.dto.UserDto;
 import com.hoiio.exceptions.HoiioRestException;
 import com.hoiio.exceptions.HttpPostConnectionException;
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
