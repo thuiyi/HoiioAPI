@@ -34,12 +34,20 @@ public class HoiioRestException extends Exception {
     String className;
     APIRequest req;
     APIResponse res;
+    /***
+     * Default constructor
+     */
     public HoiioRestException() {
         super();
         stackTrace = "";
         className = "";
     }
 
+    /***
+     * Constructor taking in an Exception as a parameter to store the stack trace
+     * of the Exception parameter into the HoiioRestException class.
+     * @param e
+     */
     public HoiioRestException(Exception e)
     {
         String trace = "";
@@ -51,49 +59,91 @@ public class HoiioRestException extends Exception {
         this.className = e.getClass().getName();
     }
 
+    /***
+     * Constructor taking in the request and response of an API call
+     * @param req APIRequest for the call which results in this Exception
+     * @param res APIResponse for the call which results in this Exception
+     */
     public HoiioRestException(APIRequest req, APIResponse res) {
         super(res.getStatus().toString());
         this.req = req;
         this.res = res;
     }
 
+    /***
+     * Constructor taking in a String which describes the Exception message
+     * @param msg
+     */
     public HoiioRestException(String msg) {
         super(msg);
     }
 
+    /***
+     * Gets the APIRequest which results in this Exception being thrown
+     * @return
+     */
     public APIRequest getRequest()
     {
         return req;
     }
 
+    /***
+     * Gets the APIResponse which results in this Exception being thrown
+     * @return
+     */
     public APIResponse getResponse()
     {
         return res;
     }
 
+    /***
+     * Gets the APIStatus of the APIResponse which results in this Exception being thrown
+     * @return
+     */
     public APIStatus getStatus()
     {
         return res.getStatus();
     }
 
+    /***
+     * Gets the HTTP GET String for the APIRequest which results in this Exception being thrown
+     * @return
+     */
     public String getPostString()
     {
         return req.getRequestUrl() + "?" + req.getPostString();
     }
 
+    /***
+     * Gets the HTTP Response String which results in this Exception being thrown
+     * @return
+     */
     public String getResponseString()
     {
         return res.getResponseString();
     }
 
+    /***
+     * Gets the stack trace in String format
+     * @return The stack trace
+     */
     public String getStringStackTrace() {
         return stackTrace;
     }
 
+    /***
+     * Sets the stack trace
+     * @param stackTrace The stack trace
+     */
     public void setStringStackTrace(String stackTrace) {
         this.stackTrace = stackTrace;
     }
 
+    /***
+     * Gets the String representation of this Exception which best describes
+     * the problem
+     * @return The String representation of this Exception
+     */
     @Override
     public String toString(){
         if(stackTrace != null)
