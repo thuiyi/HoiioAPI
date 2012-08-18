@@ -21,12 +21,12 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-*/
+ */
 package com.hoiio.examples;
-
 
 import com.hoiio.api.NumberAPI;
 import com.hoiio.dto.ActiveNumbers;
+import com.hoiio.dto.ActiveNumbers.HoiioNumber;
 import com.hoiio.dto.HoiioAuth;
 import com.hoiio.exceptions.HoiioRestException;
 import com.hoiio.exceptions.HttpPostConnectionException;
@@ -36,20 +36,21 @@ import com.hoiio.exceptions.HttpPostConnectionException;
  * @author Max
  */
 public class TestActive {
-    public static void main(String[]args)
-    {
+
+    public static void main(String[] args) throws HttpPostConnectionException, HoiioRestException {
         String appId = "";
         String accessToken = "";
 
         HoiioAuth auth = new HoiioAuth(appId, accessToken);
-        try {
-            ActiveNumbers numbers = NumberAPI.getActive(auth);
+        ActiveNumbers numbers = NumberAPI.getActive(auth);
 
-            System.out.println("Your app has " + numbers.getTotalEntries() + " total numbers");
-        } catch (HttpPostConnectionException ex) {
-            ex.printStackTrace();
-        } catch (HoiioRestException ex) {
-            ex.printStackTrace();
-        } 
+        System.out.println("Your app has " + numbers.getTotalEntries() + " total numbers");
+
+        //Iterate through all numbers assigned to app
+        for(HoiioNumber number : numbers.getHoiioNumbers())
+        {
+            System.out.println("Number: " + number.getNumber() + " Country: " + number.getCountry());
+        }
+
     }
 }

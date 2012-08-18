@@ -21,22 +21,22 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-*/
+ */
 package com.hoiio.examples;
-
 
 import com.hoiio.api.SMSAPI;
 import com.hoiio.dto.HoiioAuth;
 import com.hoiio.exceptions.HoiioRestException;
 import com.hoiio.exceptions.HttpPostConnectionException;
+import com.hoiio.util.APIStatus;
 
 /**
  *
  * @author Max
  */
 public class TestSMS {
-    public static void main(String[]args)
-    {
+
+    public static void main(String[] args) throws HttpPostConnectionException, HoiioRestException {
         String appId = "";
         String accessToken = "";
 
@@ -45,13 +45,8 @@ public class TestSMS {
         String to = "+6597534872";
         String body = "Hello world!";
 
-        try {
-            String status = SMSAPI.sendSMS(auth, from, to, body);
-            System.out.println("Txn reference of sending SMS is " + status);
-        } catch (HttpPostConnectionException ex) {
-            ex.printStackTrace();
-        }  catch (HoiioRestException ex) {
-            ex.printStackTrace();
-        }
+        String status = SMSAPI.sendSMS(auth, from, to, body);
+        System.out.println("Txn reference of sending SMS is " + status);
+
     }
 }

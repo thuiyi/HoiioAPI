@@ -21,9 +21,8 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-*/
+ */
 package com.hoiio.examples;
-
 
 import com.hoiio.api.ProfileAPI;
 import com.hoiio.dto.HoiioAuth;
@@ -36,19 +35,15 @@ import com.hoiio.exceptions.HttpPostConnectionException;
  * @author Max
  */
 public class TestProfile {
-    public static void main(String[]args)
-    {
+
+    public static void main(String[] args) throws HttpPostConnectionException, HoiioRestException {
         String appId = "";
         String accessToken = "";
 
         HoiioAuth auth = new HoiioAuth(appId, accessToken);
-        try {
-            UserDto user = ProfileAPI.getProfile(auth);
-            System.out.println("Your number is " + user.getMobileNumber() + " and name is " + user.getName());
-        } catch (HttpPostConnectionException ex) {
-            ex.printStackTrace();
-        } catch (HoiioRestException ex) {
-            ex.printStackTrace();
-        }
+
+        UserDto user = ProfileAPI.getProfile(auth);
+        System.out.println("Your number is " + user.getMobileNumber() + " and name is " + user.getName());
+
     }
 }
