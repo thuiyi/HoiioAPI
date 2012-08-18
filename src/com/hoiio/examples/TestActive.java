@@ -43,8 +43,8 @@ import com.hoiio.exceptions.HttpPostConnectionException;
 public class TestActive {
     public static void main(String[]args)
     {
-        String appId = "HY1UBwEZzqi1iqyy";
-        String accessToken = "J4KTYa1m0kafcq10";
+        String appId = "";
+        String accessToken = "";
 
         HoiioAuth auth = new HoiioAuth(appId, accessToken);
         try {
