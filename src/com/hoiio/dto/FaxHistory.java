@@ -233,19 +233,19 @@ public class FaxHistory implements Serializable {
         /***
          * Gets the dial status of the fax.
          * @return The dial status of the fax. Possible values for Outgoing fax are:
-         *  <li>
-         *      <ul>answered</ul>
-         *      <ul>unanswered</ul>
-         *      <ul>ongoing</ul>
-         *      <ul>failed</ul>
-         *      <ul>busy</ul>
-         *   </li>
+         *  <ul>
+         *      <li>answered</li>
+         *      <li>unanswered</li>
+         *      <li>ongoing</li>
+         *      <li>failed</li>
+         *      <li>busy</li>
+         *   </ul>
          *  Possible values for Incoming fax are:
-         *  <li>
-         *      <ul>ongoing</ul>
-         *      <ul>answered</ul>
-         *      <ul>failed</ul>
-         *  </li>
+         *  <ul>
+         *      <li>ongoing</li>
+         *      <li>answered</li>
+         *      <li>failed</li>
+         *  </ul>
          */
         public String getStatus() {
             return status;
@@ -254,19 +254,19 @@ public class FaxHistory implements Serializable {
         /***
          * Sets the dial status of the fax
          * @param status The dial status of the fax. Possible values for Outgoing fax are:
-         *  <li>
-         *      <ul>answered</ul>
-         *      <ul>unanswered</ul>
-         *      <ul>ongoing</ul>
-         *      <ul>failed</ul>
-         *      <ul>busy</ul>
-         *   </li>
+         *  <ul>
+         *      <li>answered</li>
+         *      <li>unanswered</li>
+         *      <li>ongoing</li>
+         *      <li>failed</li>
+         *      <li>busy</li>
+         *   </ul>
          *  Possible values for Incoming fax are:
-         *  <li>
-         *      <ul>ongoing</ul>
-         *      <ul>answered</ul>
-         *      <ul>failed</ul>
-         *  </li>
+         *  <ul>
+         *      <li>ongoing</li>
+         *      <li>answered</li>
+         *      <li>failed</li>
+         *  </ul>
          */
         public void setStatus(String status) {
             this.status = status;

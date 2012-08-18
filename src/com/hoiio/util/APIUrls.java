@@ -29,8 +29,7 @@ package com.hoiio.util;
  * @author Max
  */
 public class APIUrls {
-        public static String DOMAIN = "https://secure.hoiio.com/";
-	public static String BASE_URL = DOMAIN + "public/";
+        private static String DOMAIN = "https://secure.hoiio.com/";
 
         // Connect Urls
         public static String CONNECT_TOKEN = DOMAIN + "open/connect/get_token";
